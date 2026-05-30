@@ -1,214 +1,51 @@
-<!DOCTYPE html>
-<html>
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Experiment 9</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Experiment 9 - Form Validation</title>
+  <style>
+    body{font-family:Arial,sans-serif;background:#f8fafc;margin:0;padding:24px}
+    .box{max-width:460px;margin:30px auto;background:#fff;padding:20px;border-radius:10px;box-shadow:0 6px 18px rgba(0,0,0,.08)}
+    input{width:100%;padding:10px;margin:8px 0 14px;border:1px solid #cbd5e1;border-radius:8px}
+    button{width:100%;padding:11px;background:#2563eb;color:#fff;border:0;border-radius:8px;cursor:pointer}
+    .msg{margin-top:12px;font-weight:600}
+    .ok{color:#15803d}.err{color:#b91c1c}
+  </style>
 </head>
 <body>
-  <h1>Experiment 9</h1>
-  <pre>Experiment 7 
-Title: Creating React Components using JSX and Props 
-Problem Statement: 
-Create a React application with multiple components and pass 
-data using props. 
-Covers Syllabus: 
-• Components 
-• JSX 
-• Props 
-• Component structure 
-Expected Outcome: 
-Reusable React components displaying data correctly. 
-Tools: React 
-• Student(props) → Parent se data receive kar raha hai  
-• props.name → Name display kar raha hai  
-• props.course → Course display kar raha hai  
-• props.marks → Marks display kar raha hai 
-Solution  
-Student.jsx 
-import React from 'react' 
-function Student(props) { 
-  return ( 
-    <div  className="Student-info"> 
-        <h2> Name:{props.name}</h2> 
-        <p> Course:{props.course}</p> 
-        <p> Marks:{props.marks}</p> 
-    </div> 
-  ) 
-} 
-export default Student 
-App.jsx 
-import './App.css' 
-import Student from './Student' 
-function App() { 
-  return ( 
-    <> 
-      <h2>Student Information</h2> 
-      <Student name="Raj" course="B.tech" marks="90" /> 
-      <Student name="Ram" course="M.tech" marks="95" /> 
-      <Student name="Rohan" course="MCA" marks="99" /> 
-    </> 
-  ) 
-} 
-export default App 
-App.css 
-.Student-info{ 
-  background-color:green; 
-  color: black; 
-  width: 100px; 
-  margin: 40px auto; 
-  padding: 50px; 
-} 
-OUTPUT 
-Experiment 8 
-Title: State Management using useState Hook 
-Problem Statement: 
-Develop a React counter application using useState and event 
-handling. 
-Covers Syllabus: 
-• useState hook 
-• Event handling 
-• State management 
-Expected Outcome: 
-UI updates correctly based on state changes. 
-Tools: React 
-• useState 
-React Hook hai jo component me state manage karne ke 
-liye use hota hai.  
-• count State 
-Counter ki current value store karta hai.  
-• setCount() 
-Counter value update karne ke liye use hota hai.  
-• increment() Function 
-Counter value ko 1 se increase karta hai.  
-• decrement() Function 
-Counter value ko 1 se decrease karta hai.  
-• reset() Function 
-Counter value ko 0 par reset karta hai.  
-• {count} 
-Current counter value screen par display karta hai. 
-Solution 
-App.jsx 
-import { useState } from 'react' 
-import './App.css' 
-function App() { 
-  const [count, setCount] = useState(0) 
-  const increment = () => { 
-    setCount(count + 1) 
-  } 
-  const decrement = () => { 
-    setCount(count - 1) 
-  } 
-  const reset = () => { 
-    setCount(0) 
-  } 
-  return ( 
-    <> 
-      <h2>React Counter Application</h2> 
-      <h2>{count}</h2> 
-      <button onClick={increment}>Increment</button> 
-      <br /><br /> 
-      <button onClick={decrement}>Decrement</button> 
-      <br /><br /> 
-      <button onClick={reset}>Reset</button> 
-    </> 
-  ) 
-} 
-export default App 
-App.css 
-button{ 
-  background-color:aqua; 
-  color: red; 
-  border: 5px solid green; 
-  width: 200px; 
-  margin: 30px auto; 
-} 
-OUTPUT 
-Experiment 9 
-Title: Fetching API Data using useEffect in React 
-Problem Statement: 
-Fetch data from an API using useEffect and display it in a 
-component. 
-Covers Syllabus: 
-• useEffect 
-• API fetching 
-• Loading states 
-Expected Outcome: 
-API data rendered when component loads. 
-Tools: React 
-• useState 
-Form data ko store karne ke liye use hua hai.  
-• name State 
-User ka name store karta hai.  
-• email State 
-User ka email store karta hai.  
-• password State 
-User ka password store karta hai.  
-• setName() 
-Name state ko update karta hai.  
-• setEmail() 
-Email state ko update karta hai.  
-• setPassword() 
-Password state ko update karta hai.  
-• onChange Event 
-Input field me value change hone par state update karta 
-hai.  
-• (e) Event Object 
-User input ki current value ko access karne ke liye use 
-hota hai.  
-• e.target.value 
-Input field ki current value return karta hai.  
-• showData() Function 
-Form validation aur submit action handle karta hai.  
-• = = = Operator 
-Strict comparison ke liye use hota hai.  
-• || Operator 
-Multiple conditions check karne ke liye use hota hai.  
-Soultion  
-App.jsx 
-import { useState } from 'react' 
-import './App.css' 
-function App() { 
-  const [name, setName] = useState("") 
-  const [email, setEmail] = useState("") 
-  const [password, setPassword] = useState("") 
-  function showData() { 
-    if(name === "" || email === "" || password === ""){ 
-      alert("Please Fill All Fields") 
-    } 
-    else{ 
-      alert("Registered Successfully") 
-    } 
-  } 
-  return ( 
-    <> 
-      <h2>Registration Form</h2> 
-      <input type="text" placeholder="Enter Your Name" 
-onChange={(e)=>setName(e.target.value)}  />  <br /><br /> 
-      <input type="email"placeholder="Enter Your Email" 
-        onChange={(e) => setEmail(e.target.value)} /><br /><br 
-/> 
-<input type="password"placeholder="Enter Your Password" 
-        onChange={(e) => setPassword(e.target.value)} /><br 
-/><br /> 
-      <p>Name: {name}</p> 
-      <p>Email: {email}</p> 
-      <p>Password: {password}</p> 
-      <button onClick={showData}> 
-        Submit 
-      </button> 
-    </> 
-  ) 
-} 
-export default App 
-App.css  
-button{ 
-  background-color: aqua; 
-  color: red; 
-  border: 5px solid green; 
-  width: 200px; 
-  margin: 30px auto; 
-} 
-Output </pre>
+  <section class="box">
+    <h1>Experiment 9: Registration Validation</h1>
+    <form id="regForm">
+      <label>Name</label>
+      <input id="name" type="text" placeholder="Enter name" />
+      <label>Email</label>
+      <input id="email" type="email" placeholder="Enter email" />
+      <label>Password</label>
+      <input id="password" type="password" placeholder="Min 6 characters" />
+      <button type="submit">Submit</button>
+    </form>
+    <p id="msg" class="msg"></p>
+  </section>
+
+  <script>
+    const form = document.getElementById('regForm');
+    const msg = document.getElementById('msg');
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value;
+      const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+      if (!name || !emailOk || password.length < 6) {
+        msg.textContent = 'Please enter valid name, email, and password (min 6 chars).';
+        msg.className = 'msg err';
+        return;
+      }
+      msg.textContent = 'Form submitted successfully.';
+      msg.className = 'msg ok';
+    });
+  </script>
 </body>
 </html>
